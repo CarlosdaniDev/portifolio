@@ -4,29 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carlos Daniel | Digital Architect</title>
+    <title>Carlos Daniel | Desenvolvedor Front-End & Estudante de ADS</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Portfólio de Carlos Daniel, estudante de Análise e Desenvolvimento de Sistemas. Projetos full-stack com HTML, CSS, JavaScript, Node.js e Python.">
+
+    <!-- Open Graph (preview ao compartilhar em WhatsApp/LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Carlos Daniel | Desenvolvedor Front-End & Estudante de ADS">
+    <meta property="og:description" content="Portfólio com projetos full-stack: HTML, CSS, JavaScript, Node.js, MongoDB e Python.">
+    <meta property="og:image" content="img/foto-perfil.jpg">
+    <meta property="og:locale" content="pt_BR">
+
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@900&display=swap"
+
+    <!-- Fontes: Syncopate (logo), Inter (peso 900), Plus Jakarta Sans (fonte base do body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="cursor-glow" id="cursor"></div>
+    <div class="cursor-glow" id="cursor" aria-hidden="true"></div>
 
     <nav>
-        <div class="logo-wrapper">
-            <div class="logo-icon">
-                <span class="char-c">C</span>
-                <span class="char-d">D</span>
-            </div>
-            <div class="logo-text">
-                <span class="name">CarlosDani</span><span class="dev">Dev</span>
-            </div>
-        </div>
         <div class="nav-links">
+            <a href="#sobre">Sobre</a>
             <a href="#projetos">Projetos</a>
             <a href="https://wa.me/5531995312787" class="btn-cta" target="_blank" rel="noopener">Contratar Agora</a>
         </div>
@@ -36,7 +44,7 @@
         <div class="hero-container">
             <div class="profile-area">
                 <div class="photo-main">
-                    <img src="img/WhatsApp Image 2026-02-01 at 09.22.49.jpeg" alt="Carlos Daniel">
+                    <img src="img/WhatsApp Image 2026-07-16 at 21.04.56.jpeg" alt="Foto de Carlos Daniel" width="350" height="350">
                 </div>
                 <div class="status-available">
                     <span class="dot"></span> DISPONÍVEL PARA PROJETOS
@@ -48,25 +56,42 @@
                 <h1>
                     <span>Eu sou</span>
                     <span class="linha-typing">
-                        <span id="typewriter" class="type-text"></span><span class="cursor-type">|</span>
+                        <span id="typewriter" class="type-text"></span><span class="cursor-type" aria-hidden="true">|</span>
                     </span>
                 </h1>
-                <p>Especialista em transformar ideias complexas em interfaces de alto nível. Design visual impecável
-                    aliado à técnica moderna de ADS e Python.</p>
+                <p>Estudante de Análise e Desenvolvimento de Sistemas construindo projetos full-stack reais — do front-end ao back-end, com Node.js, bancos de dados e integrações de API.</p>
 
                 <div class="hero-social">
-                    <!-- ✏️ TROQUE os href pelos seus links reais -->
                     <a href="https://www.linkedin.com/in/carlos-daniel-5b49b11b2/" title="LinkedIn" target="_blank"
                         rel="noopener"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/CarlosdaniDev" title="GitHub" target="_blank" rel="noopener"><i
                             class="fab fa-github"></i></a>
                     <a href="https://wa.me/5531995312787" title="WhatsApp" target="_blank" rel="noopener"><i
                             class="fab fa-whatsapp"></i></a>
-                    <!-- O ícone do Python não é uma rede social — removido do social e mantido como decorativo se quiser -->
                 </div>
             </div>
         </div>
     </header>
+
+    <section class="about-section" id="sobre">
+        <div class="section-title">
+            <span class="badge">QUEM SOU EU</span>
+            <h2>Sobre mim</h2>
+        </div>
+        <div class="about-content">
+            <p>Estou em transição de carreira para tecnologia, cursando ADS e construindo projetos full-stack do zero para aprender fazendo. Gosto de resolver problemas reais — desde integração com APIs externas até automação de processos — e de deixar cada detalhe da interface com acabamento profissional.</p>
+
+            <div class="stack-grid">
+                <span class="stack-item"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="stack-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                <span class="stack-item"><i class="fab fa-js"></i> JavaScript</span>
+                <span class="stack-item"><i class="fab fa-node-js"></i> Node.js</span>
+                <span class="stack-item"><i class="fab fa-python"></i> Python</span>
+                <span class="stack-item"><i class="fas fa-database"></i> MongoDB</span>
+                <span class="stack-item"><i class="fab fa-git-alt"></i> Git</span>
+            </div>
+        </div>
+    </section>
 
     <section class="projects-section" id="projetos">
         <div class="section-title">
@@ -76,39 +101,36 @@
         </div>
 
         <div class="projects-grid">
-            <div class="p-card" style="--accent-card: #ff2d55;">
-                <div class="card-glow"></div>
-                <div class="p-img" style="background-image: url('img/Captura\ de\ tela\ 2026-03-15\ 153948.png')"></div>
-                <div class="p-info">
-                    <h3>Menu Padaria Digital</h3>
-                    <p>Aplicação web responsiva otimizada para visualização de produtos com fluxo de redirecionamento
-                        inteligente para atendimento.</p>
-                    <a href="https://carlosdanidev.github.io/padaria/" target="_blank" class="p-link">Ver Detalhes <i
-                            class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
             <div class="p-card" style="--accent-card: #00d4ff;">
                 <div class="card-glow"></div>
-                <div class="p-img" style="background-image: url('img/Captura\ de\ tela\ 2026-03-15\ 163102.png')"></div>
+                <img class="p-img" src="img/Captura de tela 2026-03-15 163102.png" alt="Preview do site da Clash City BR">
                 <div class="p-info">
-                    <h3>E-Sports Clan</h3>
-                    <p>Arquitetura de informações dedicada à Família Clash City BR, otimizando o acesso a estatísticas,
-                        convocações e conteúdo multimídia.</p>
-                    <a href="https://clashcitybr.github.io/" target="_blank" class="p-link">Ver Detalhes <i
+                    <h3>Clash City BR — Plataforma de Clã</h3>
+                    <p>Full-stack para gestão de família de clãs: backend em Node.js/Express com MongoDB Atlas (Prisma), integração com a Supercell API, alertas automáticos via WhatsApp Web.js e histórico de temporadas com gráficos em Chart.js.</p>
+                    <a href="https://clashcitybr.github.io/" target="_blank" rel="noopener" class="p-link">Ver Detalhes <i
                             class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
             <div class="p-card" style="--accent-card: #7000ff;">
                 <div class="card-glow"></div>
-                <div class="p-img" style="background-image: url('img/Captura\ de\ tela\ 2026-03-15\ 154216.png')"></div>
+                <img class="p-img" src="img/Captura de tela 2026-07-16 211424.png" alt="Preview do app de produtividade Pomodoro">
                 <div class="p-info">
                     <h3>Foco em Produtividade</h3>
-                    <p>Aplicação web de alta precisão com algoritmos de cronometragem em tempo real e interface imersiva
-                        para foco profundo.</p>
-                    <a href="https://carlosdanidev.github.io/projeto-car/" target="_blank" class="p-link">Ver Detalhes
+                    <p>Timer Pomodoro com cronometragem em tempo real, configurações salvas em localStorage, notificações do sistema e atualização dinâmica do título da aba via Page Visibility API.</p>
+                    <a href="https://carlosdanidev.github.io/pomodoro/" target="_blank" rel="noopener" class="p-link">Ver Detalhes
                         <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="p-card" style="--accent-card: #ff2d55;">
+                <div class="card-glow"></div>
+                <img class="p-img" src="img/padaria-preview.png" alt="Preview do menu digital da padaria">
+                <div class="p-info">
+                    <h3>Menu Padaria Digital</h3>
+                    <p>Aplicação web responsiva para visualização de produtos, com fluxo de redirecionamento direto para atendimento via WhatsApp.</p>
+                    <a href="https://carlosdanidev.github.io/padaria/" target="_blank" rel="noopener" class="p-link">Ver Detalhes <i
+                            class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -117,7 +139,7 @@
     <footer>
         <div class="footer-content">
             <div class="logo">CD<span>.</span></div>
-            <p>Arquitetando soluções digitais com foco em ADS e Python.</p>
+            <p>Construindo soluções digitais com foco em ADS e Python.</p>
             <div class="social-footer">
                 <a href="https://www.linkedin.com/in/carlos-daniel-5b49b11b2/" target="_blank" rel="noopener"><i
                         class="fab fa-linkedin"></i></a>

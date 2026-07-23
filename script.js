@@ -1,8 +1,21 @@
-// 1. Cursor de Brilho no Fundo
+// 1. Cursor de Brilho no Fundo (com throttle via requestAnimationFrame)
 const cursor = document.getElementById('cursor');
+let cursorTicking = false;
+let lastMouseX = 0;
+let lastMouseY = 0;
+
 document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+
+    if (!cursorTicking) {
+        requestAnimationFrame(() => {
+            // transform em vez de left/top: evita reflow, só repaint na GPU
+            cursor.style.transform = `translate(${lastMouseX}px, ${lastMouseY}px) translate(-50%, -50%)`;
+            cursorTicking = false;
+        });
+        cursorTicking = true;
+    }
 });
 
 // 2. Typewriter Effect
@@ -39,57 +52,74 @@ function type() {
 
 type();
 
-// 3. Efeito 3D Tilt nos Cards
+// 3. Efeito 3D Tilt nos Cards (desativado em touch, onde não faz sentido)
+const supportsHover = window.matchMedia('(hover: hover)').matches;
 const cards = document.querySelectorAll('.p-card');
 
-cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 12;
-        const rotateY = (centerX - x) / 12;
+if (supportsHover) {
+    cards.forEach(card => {
+        let tiltTicking = false;
 
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-        card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
-        card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (!tiltTicking) {
+                requestAnimationFrame(() => {
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 12;
+                    const rotateY = (centerX - x) / 12;
+
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                    card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+                    card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+                    tiltTicking = false;
+                });
+                tiltTicking = true;
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+            card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+        });
+
+        card.addEventListener('mouseenter', () => {
+            card.style.transition = "transform 0.1s ease-out";
+        });
     });
+}
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
-        card.style.transition = "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
-    });
+// 4. Scroll Reveal (usa classe em vez de sobrescrever inline, evitando
+// conflito com o transform do tilt 3D acima)
+const revealElements = document.querySelectorAll('.p-card, .hero-container, .about-content');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    card.addEventListener('mouseenter', () => {
-        card.style.transition = "transform 0.1s ease-out";
-    });
-});
-
-// 4. Scroll Reveal (corrigido)
-const revealElements = document.querySelectorAll('.p-card, .hero-container');
-
-// Estado inicial: invisível e deslocado para baixo
-revealElements.forEach(el => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(40px)";
-    el.style.transition = "opacity 0.7s ease, transform 0.7s ease";
-});
-
-const reveal = () => {
+if (!prefersReducedMotion) {
     revealElements.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        const elementVisible = 120;
-
-        if (elementTop < windowHeight - elementVisible) {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-        }
+        el.style.opacity = "0";
+        el.style.transform = "translateY(40px)";
+        el.style.transition = "opacity 0.7s ease, transform 0.7s ease";
     });
-};
 
-// Roda uma vez no load para elementos já visíveis
-window.addEventListener('scroll', reveal);
-window.addEventListener('load', reveal);
+    const reveal = () => {
+        revealElements.forEach(el => {
+            if (el.dataset.revealed === "true") return; // já revelado, não reprocessa
+
+            const windowHeight = window.innerHeight;
+            const elementTop = el.getBoundingClientRect().top;
+            const elementVisible = 120;
+
+            if (elementTop < windowHeight - elementVisible) {
+                el.style.opacity = "1";
+                el.style.transform = "translateY(0)";
+                el.dataset.revealed = "true";
+            }
+        });
+    };
+
+    window.addEventListener('scroll', reveal, { passive: true });
+    window.addEventListener('load', reveal);
+}
