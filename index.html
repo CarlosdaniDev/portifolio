@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -7,148 +7,188 @@
     <title>Carlos Daniel | Desenvolvedor Front-End & Estudante de ADS</title>
 
     <!-- SEO -->
-    <meta name="description" content="Portfólio de Carlos Daniel, estudante de Análise e Desenvolvimento de Sistemas. Projetos full-stack com HTML, CSS, JavaScript, Node.js e Python.">
+    <meta name="description" content="Portfólio de Carlos Daniel, estudante de Análise e Desenvolvimento de Sistemas. Projetos full-stack com HTML, CSS, JavaScript, Node.js, MongoDB e Python.">
 
     <!-- Open Graph (preview ao compartilhar em WhatsApp/LinkedIn) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Carlos Daniel | Desenvolvedor Front-End & Estudante de ADS">
-    <meta property="og:description" content="Portfólio com projetos full-stack: HTML, CSS, JavaScript, Node.js, MongoDB e Python.">
-    <meta property="og:image" content="img/foto-perfil.jpg">
+    <meta property="og:description" content="Projetos full-stack com HTML, CSS, JavaScript, Node.js, MongoDB e Python.">
+    <meta property="og:image" content="img/foto.png">
     <meta property="og:locale" content="pt_BR">
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Fontes: Syncopate (logo), Inter (peso 900), Plus Jakarta Sans (fonte base do body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <div class="cursor-glow" id="cursor" aria-hidden="true"></div>
-
-    <nav>
-        <div class="nav-links">
-            <a href="#sobre">Sobre</a>
-            <a href="#projetos">Projetos</a>
-            <a href="https://wa.me/5531995312787" class="btn-cta" target="_blank" rel="noopener">Contratar Agora</a>
-        </div>
-    </nav>
+    <div class="scroll-progress" id="progress" aria-hidden="true"></div>
 
     <header class="hero">
-        <div class="hero-container">
-            <div class="profile-area">
-                <div class="photo-main">
-                    <img src="img/WhatsApp Image 2026-07-16 at 21.04.56.jpeg" alt="Foto de Carlos Daniel" width="350" height="350">
+        <nav>
+            <a href="#" class="logo">Carlos<span>.</span></a>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <!-- ✏️ Troque pelo caminho real do seu currículo em PDF -->
+            <a class="btn" href="pdf/CarlosDanielCV.pdf" target="_blank" rel="noopener">Baixar CV</a>
+        </nav>
+
+        <section class="hero-content">
+            <div class="hero-text">
+                <p class="badge">FRONT-END • ADS • NODE.JS</p>
+                <h1>Olá, eu sou <span id="typing"></span><span class="cursor-type" aria-hidden="true">|</span></h1>
+                <p>
+                    Estudante de Análise e Desenvolvimento de Sistemas com foco em desenvolvimento
+                    Front-End moderno. Construo aplicações full-stack com HTML, CSS, JavaScript,
+                    Node.js, MongoDB e Python.
+                </p>
+
+                <div class="buttons">
+                    <a class="btn" href="#projetos">Ver Projetos</a>
+                    <a class="btn secondary" href="https://github.com/CarlosdaniDev" target="_blank" rel="noopener">GitHub</a>
                 </div>
+
+                <div class="stats">
+                    <div><strong data-target="4">0</strong><span>Projetos</span></div>
+                    <div><strong data-target="8">0</strong><span>Tecnologias</span></div>
+                    <div><strong data-target="100" data-suffix="%">0%</strong><span>Responsivo</span></div>
+                    <div><strong class="stat-static">ADS</strong><span>Uninter</span></div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="img/WhatsApp Image 2026-07-16 at 21.04.56.jpeg" alt="Foto de Carlos Daniel" width="360" height="360">
                 <div class="status-available">
                     <span class="dot"></span> DISPONÍVEL PARA PROJETOS
                 </div>
             </div>
-
-            <div class="hero-content">
-                <span class="badge">ADS STUDENT • FRONT-END</span>
-                <h1>
-                    <span>Eu sou</span>
-                    <span class="linha-typing">
-                        <span id="typewriter" class="type-text"></span><span class="cursor-type" aria-hidden="true">|</span>
-                    </span>
-                </h1>
-                <p>Estudante de Análise e Desenvolvimento de Sistemas construindo projetos full-stack reais — do front-end ao back-end, com Node.js, bancos de dados e integrações de API.</p>
-
-                <div class="hero-social">
-                    <a href="https://www.linkedin.com/in/carlos-daniel-5b49b11b2/" title="LinkedIn" target="_blank"
-                        rel="noopener"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/CarlosdaniDev" title="GitHub" target="_blank" rel="noopener"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://wa.me/5531995312787" title="WhatsApp" target="_blank" rel="noopener"><i
-                            class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
+        </section>
     </header>
 
-    <section class="about-section" id="sobre">
-        <div class="section-title">
+    <main>
+
+        <section id="sobre" class="reveal">
             <span class="badge">QUEM SOU EU</span>
             <h2>Sobre mim</h2>
-        </div>
-        <div class="about-content">
-            <p>Estou em transição de carreira para tecnologia, cursando ADS e construindo projetos full-stack do zero para aprender fazendo. Gosto de resolver problemas reais — desde integração com APIs externas até automação de processos — e de deixar cada detalhe da interface com acabamento profissional.</p>
+            <p>
+                Estou em transição de carreira para tecnologia. Busco minha primeira oportunidade
+                como desenvolvedor Front-End, construindo projetos reais para evoluir minhas
+                habilidades em arquitetura, interfaces modernas, integração com APIs e boas
+                práticas de desenvolvimento.
+            </p>
+        </section>
 
-            <div class="stack-grid">
-                <span class="stack-item"><i class="fab fa-html5"></i> HTML5</span>
-                <span class="stack-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-                <span class="stack-item"><i class="fab fa-js"></i> JavaScript</span>
-                <span class="stack-item"><i class="fab fa-node-js"></i> Node.js</span>
-                <span class="stack-item"><i class="fab fa-python"></i> Python</span>
-                <span class="stack-item"><i class="fas fa-database"></i> MongoDB</span>
-                <span class="stack-item"><i class="fab fa-git-alt"></i> Git</span>
+        <section id="stack" class="reveal">
+            <span class="badge">FERRAMENTAS</span>
+            <h2>Stack</h2>
+            <div class="grid">
+                <div><i class="stack-icon">◆</i>HTML5</div>
+                <div><i class="stack-icon">◆</i>CSS3</div>
+                <div><i class="stack-icon">◆</i>JavaScript</div>
+                <div><i class="stack-icon">◆</i>Node.js</div>
+                <div><i class="stack-icon">◆</i>Express</div>
+                <div><i class="stack-icon">◆</i>MongoDB</div>
+                <div><i class="stack-icon">◆</i>Git</div>
+                <div><i class="stack-icon">◆</i>Python</div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="projects-section" id="projetos">
-        <div class="section-title">
+        <section id="projetos" class="reveal">
             <span class="badge">PORTFÓLIO</span>
-            <h2>Projetos de Destaque</h2>
-            <p>Toque nos cards para sentir a profundidade e o acabamento técnico.</p>
-        </div>
+            <h2>Projetos</h2>
 
-        <div class="projects-grid">
-            <div class="p-card" style="--accent-card: #00d4ff;">
-                <div class="card-glow"></div>
-                <img class="p-img" src="img/Captura de tela 2026-03-15 163102.png" alt="Preview do site da Clash City BR">
-                <div class="p-info">
-                    <h3>Clash City BR — Plataforma de Clã</h3>
-                    <p>Full-stack para gestão de família de clãs: backend em Node.js/Express com MongoDB Atlas (Prisma), integração com a Supercell API, alertas automáticos via WhatsApp Web.js e histórico de temporadas com gráficos em Chart.js.</p>
-                    <a href="https://clashcitybr.github.io/" target="_blank" rel="noopener" class="p-link">Ver Detalhes <i
-                            class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+            <div class="cards-grid">
+                <article class="card">
+                    <div class="card-glow"></div>
+                    <h3>Clash City BR</h3>
+                    <p>
+                        Sistema full-stack para gerenciamento de família de clãs, com integração
+                        à API da Supercell, MongoDB Atlas, Node.js/Express e automações via
+                        WhatsApp Web.js.
+                    </p>
+                    <div class="card-links">
+                        <a href="https://clashcitybr.github.io/" target="_blank" rel="noopener">Demo</a>
+                        <a href="https://github.com/CarlosdaniDev" target="_blank" rel="noopener">Código</a>
+                    </div>
+                </article>
 
-            <div class="p-card" style="--accent-card: #7000ff;">
-                <div class="card-glow"></div>
-                <img class="p-img" src="img/Captura de tela 2026-07-16 211424.png" alt="Preview do app de produtividade Pomodoro">
-                <div class="p-info">
-                    <h3>Foco em Produtividade</h3>
-                    <p>Timer Pomodoro com cronometragem em tempo real, configurações salvas em localStorage, notificações do sistema e atualização dinâmica do título da aba via Page Visibility API.</p>
-                    <a href="https://carlosdanidev.github.io/pomodoro/" target="_blank" rel="noopener" class="p-link">Ver Detalhes
-                        <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+                <article class="card">
+                    <div class="card-glow"></div>
+                    <h3>Pomodoro</h3>
+                    <p>
+                        Timer de produtividade em JavaScript puro, com LocalStorage,
+                        Notifications API e Page Visibility API para atualizar o título da aba.
+                    </p>
+                    <div class="card-links">
+                        <a href="https://carlosdanidev.github.io/projeto-car/" target="_blank" rel="noopener">Demo</a>
+                        <a href="https://github.com/CarlosdaniDev" target="_blank" rel="noopener">Código</a>
+                    </div>
+                </article>
 
-            <div class="p-card" style="--accent-card: #ff2d55;">
-                <div class="card-glow"></div>
-                <img class="p-img" src="img/padaria-preview.png" alt="Preview do menu digital da padaria">
-                <div class="p-info">
-                    <h3>Menu Padaria Digital</h3>
-                    <p>Aplicação web responsiva para visualização de produtos, com fluxo de redirecionamento direto para atendimento via WhatsApp.</p>
-                    <a href="https://carlosdanidev.github.io/padaria/" target="_blank" rel="noopener" class="p-link">Ver Detalhes <i
-                            class="fas fa-arrow-right"></i></a>
-                </div>
+                <article class="card">
+                    <div class="card-glow"></div>
+                    <h3>Padaria Digital</h3>
+                    <p>
+                        Cardápio digital responsivo com fluxo de pedido integrado diretamente
+                        ao WhatsApp do estabelecimento.
+                    </p>
+                    <div class="card-links">
+                        <a href="https://carlosdanidev.github.io/padaria/" target="_blank" rel="noopener">Demo</a>
+                        <a href="https://github.com/CarlosdaniDev" target="_blank" rel="noopener">Código</a>
+                    </div>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="timeline" class="reveal">
+            <span class="badge">TRAJETÓRIA</span>
+            <h2>Minha evolução</h2>
+
+            <ul>
+                <li>2025 — Início do ADS</li>
+                <li>HTML e CSS</li>
+                <li>JavaScript</li>
+                <li>Git e GitHub</li>
+                <li>Node.js</li>
+                <li>MongoDB</li>
+                <li>Python</li>
+                <li class="timeline-goal">Primeira vaga (objetivo)</li>
+            </ul>
+        </section>
+
+        <section id="contato" class="reveal">
+            <span class="badge">CONTATO</span>
+            <h2>Vamos conversar?</h2>
+            <p>
+                Estou disponível para estágio e oportunidades como Desenvolvedor Front-End.
+            </p>
+
+            <div class="buttons">
+                <!-- ✏️ Troque pelo seu e-mail real -->
+                <a class="btn" href="mailto:seuemail@email.com">Enviar Email</a>
+                <a class="btn secondary" href="https://wa.me/5531995312787" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+        </section>
+
+    </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="logo">CD<span>.</span></div>
-            <p>Construindo soluções digitais com foco em ADS e Python.</p>
-            <div class="social-footer">
-                <a href="https://www.linkedin.com/in/carlos-daniel-5b49b11b2/" target="_blank" rel="noopener"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/CarlosdaniDev" target="_blank" rel="noopener"><i
-                        class="fab fa-github"></i></a>
-            </div>
-        </div>
-        <div class="footer-line">
-            © 2026 Carlos Daniel. Todos os direitos reservados.
+        <p>© <span id="year">2026</span> Carlos Daniel</p>
+        <div>
+            <a href="https://github.com/CarlosdaniDev" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://linkedin.com/in/carlos-daniel-5b49b11b2" target="_blank" rel="noopener">LinkedIn</a>
         </div>
     </footer>
 
